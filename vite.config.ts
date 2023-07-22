@@ -12,6 +12,9 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
+        globals: {
+          vue: 'Vue'
+        },
         entryFileNames: '[name].js',
         chunkFileNames: '[name].js',
         assetFileNames: '[name].[ext]'
