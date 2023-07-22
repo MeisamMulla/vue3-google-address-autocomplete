@@ -2,15 +2,6 @@
 
 This project provides a Vue 3 component that uses Google's Places API for address autocomplete functionality.
 
-## Installation
-
-To install this component in your project, use npm or yarn:
-
-```bash
-npm install google-address-autocomplete-vue3
-# or
-yarn add google-address-autocomplete-vue3
-```
 ## Prerequisites
 
 Before you begin, you will need a Google Maps API key from [Google Cloud Platform Console](https://console.cloud.google.com/). You'll also need to enable the Maps JavaScript API and the Places API.
@@ -20,9 +11,9 @@ Before you begin, you will need a Google Maps API key from [Google Cloud Platfor
 To install this component in your project, use npm or yarn:
 
 ```bash
-npm install google-address-autocomplete-vue3
+npm install vue3-google-address-autocomplete
 # or
-yarn add google-address-autocomplete-vue3
+yarn add vue3-google-address-autocomplete
 ```
 
 ## Usage
@@ -41,7 +32,7 @@ Import and register the component:
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import GoogleAddressAutocomplete from 'google-address-autocomplete-vue3'
+import GoogleAddressAutocomplete from 'vue3-google-address-autocomplete'
 
 const address = ref('');
 
