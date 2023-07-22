@@ -10,7 +10,7 @@ const callback = (place: any) => {
 </script>
 
 <template>
-  <GoogleAddressAutocomplete apiKey="AIzaSyDJIHl1Zw6wyFh9ozphjgG7o7elYpdBzZs" v-model="address" @callback="callback" />
+  <GoogleAddressAutocomplete apiKey="YOURKEY" v-model="address" @callback="callback" />
 
   {{ address }}
 </template>
