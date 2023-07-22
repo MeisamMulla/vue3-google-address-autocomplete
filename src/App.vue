@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import GoogleAddressAutocomplete from './components/GoogleAddressAutocomplete.vue';
+import GoogleAddressAutocomplete from './index';
 
 const address = ref<string>('');
 
