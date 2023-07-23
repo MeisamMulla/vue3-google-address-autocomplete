@@ -16,7 +16,7 @@ To install this component in your project, use npm or yarn:
 npm install vue3-google-address-autocomplete
 ```
 
-# or
+or
 
 ```bash
 yarn add vue3-google-address-autocomplete
