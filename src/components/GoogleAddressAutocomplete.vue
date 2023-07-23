@@ -1,6 +1,6 @@
 <template>
     <input 
-        ref="autocompleteInput" 
+        :ref="(autocompleteInput as any)" 
         type="text" 
         autocomplete="off" 
         :placeholder="placeholder" 
@@ -23,7 +23,7 @@ const emit = defineEmits<{
     (e: "callback", value: object): void;
 }>();
 
-let autocompleteInput = ref(null);
+let autocompleteInput = ref<HTMLInputElement | null>(null);
 let scriptLoaded = false;
 
 // Load the Google Maps API script
@@ -57,7 +57,14 @@ function loadGoogleMapsScript() {
 onMounted(async () => {
     try {
         await loadGoogleMapsScript();
-        setupAutocomplete();
+        const autocomplete = new google.maps.places.Autocomplete(
+            autocompleteInput.value
+        );
+        autocomplete.addListener("place_changed", () => {
+            const place = autocomplete.getPlace();
+            emit("update:modelValue", place.formatted_address);
+            emit("callback", place);
+        });
     } catch (error) {
         console.error("Failed to load Google Maps API", error);
     }
@@ -67,17 +74,4 @@ onBeforeUnmount(() => {
     // Remove the global callback to clean up
     delete window.initMap;
 });
-
-function setupAutocomplete() {
-    const autocomplete = new google.maps.places.Autocomplete(
-        autocompleteInput.value
-    );
-
-    autocomplete.addListener("place_changed", () => {
-        const place = autocomplete.getPlace();
-
-        emit("update:modelValue", place.formatted_address);
-        emit("callback", place);
-    });
-}
 </script>
