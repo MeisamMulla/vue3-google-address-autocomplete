@@ -1,10 +1,10 @@
 <template>
-    <input
-        ref="autocompleteInput"
-        type="text"
-        autocomplete="off"
-        :placeholder="placeholder"
-        :class="class"
+    <input 
+        ref="autocompleteInput" 
+        type="text" 
+        autocomplete="off" 
+        :placeholder="placeholder" 
+        :class="class" 
     />
 </template>
 
@@ -13,14 +13,26 @@ import { ref, onMounted, onBeforeUnmount, defineComponent, nextTick } from "vue"
 
 export default defineComponent({
     props: {
-        modelValue: String,
-        apiKey: String,
-        placeholder: String,
-        class: String
+        modelValue: {
+            type: String,
+            default: ''
+        },
+        apiKey: {
+            type: String,
+            required: true
+        },
+        placeholder: {
+            type: String,
+            default: ''
+        },
+        class: {
+            type: String,
+            default: ''
+        }
     },
     emits: ["update:modelValue", "callback"],
     setup(props, { emit }) {
-        const autocompleteInput = ref<HTMLInputElement | null>(null);
+        const autocompleteInput = ref<HTMLElement | null>(null);
         let scriptLoaded = false;
 
         function loadGoogleMapsScript() {
