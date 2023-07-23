@@ -1,8 +1,8 @@
 {
 	"name": "vue3-google-address-autocomplete",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"license": "MIT",
-    "description": "A Vue 3 component for Google address autocomplete",
+	"description": "A Vue 3 component for Google address autocomplete",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -10,17 +10,17 @@
 		"preview": "vite preview"
 	},
 	"keywords": [
-        "vue",
-        "vue3",
-        "autocomplete",
-        "google maps"
-    ],
+		"vue",
+		"vue3",
+		"autocomplete",
+		"google maps"
+	],
 	"dependencies": {
 		"vue": "^3.0.0"
 	},
 	"peerDependencies": {
-        "vue": "^3.0.0"
-    },
+		"vue": "^3.0.0"
+	},
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^4.2.3",
 		"typescript": "^5.0.2",
@@ -28,15 +28,16 @@
 		"vue-tsc": "^1.8.5"
 	},
 	"author": {
-        "name": "Meisam Mulla",
-        "email": "mmeisam@gmail.com"
-    },
-	"main": "dist/index.js",
+		"name": "Meisam Mulla",
+		"email": "mmeisam@gmail.com"
+	},
+	"main": "dist/vue3-google-address-autocomplete.umd.js",
+	"module": "dist/vue3-google-address-autocomplete.es.js",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/MeisamMulla/vue3-google-address-autocomplete.git"
-	  },
+	},
 	"files": [
-        "dist"
-    ]
+		"dist"
+	]
 }
