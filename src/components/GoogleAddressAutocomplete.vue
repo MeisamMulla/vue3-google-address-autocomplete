@@ -9,8 +9,7 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue";
-import { defineComponent } from 'vue';
+import { ref, onMounted, onBeforeUnmount, defineComponent, nextTick } from "vue";
 
 export default defineComponent({
     props: {
@@ -54,6 +53,8 @@ export default defineComponent({
         onMounted(async () => {
             try {
                 await loadGoogleMapsScript();
+                // Ensuring DOM has been updated before setupAutocomplete is called
+                await nextTick();
                 setupAutocomplete();
             } catch (error) {
                 console.error("Failed to load Google Maps API", error);
