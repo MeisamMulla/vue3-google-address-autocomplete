@@ -1,24 +1,23 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
-  build: {
-    lib: {
-      entry: 'src/index.ts',
-      name: 'GoogleAddressAutocomplete',
-      fileName: 'index',
-    },
-    rollupOptions: {
-      output: {
-        globals: {
-          vue: 'Vue'
+    build: {
+        lib: {
+            entry: path.resolve(__dirname, 'src/components/GoogleAddressAutocomplete.vue'),
+            name: 'GoogleAddressAutocomplete',
+            fileName: (format) => `vue3-google-address-autocomplete.${format}.js`,
         },
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].js',
-        assetFileNames: '[name].[ext]'
-      }
-    }
-  }
+        rollupOptions: {
+            external: ['vue'],
+            output: {
+                globals: {
+                    vue: 'Vue',
+                },
+            },
+        },
+    },
+    plugins: [vue()],
 });
+;  
